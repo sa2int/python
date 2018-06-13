@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/list3.css' %}" />
+    <link rel="stylesheet" href="{% static 'polls/css/bootstrap.css' %}">
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="{% static 'polls/js/bootstrap.js' %}"></script>
+    <title>Title</title>
+<style>
+
+    *{border:skyblue 1px solid; list-style:none;}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1></h1>
+    <h3 style="text-alig : center;">SIng up</h3>
+
+<div class="row" >
+ <div class="col-sm-6 col-lg-3" style="width:100%;">
+		<table class="table table-hover table-striped" style="text-align:center; border:1px solid #dddddd">
+			<tr>
+				<th style="background-color:#eeeeeeee; text-align:center;">Number</th>
+				<th style="background-color:#eeeeeeee; text-align:center;">Subject</th>
+				<th style="background-color:#eeeeeeee; text-align:center;">Writer</th>
+				<th style="background-color:#eeeeeeee; text-align:center;">Date</th>
+			</tr>
+			<tbody>
+			{% for question in latest_question_list %}
+				<tr>
+					<td>
+                        <a href="{% url 'polls:detail' question.id %}">{{ question.id }}</a>
+					</td>
+					<td>
+
+        				<li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+
+					</td>
+					<td>
+						        					<!--{{ question.username }}-->
+					</td>
+
+					<td>
+        					{{ question.pub_date }}
+    				</td>
+
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+        </div>
+	</div>
+</div>
+</body>
+</html>

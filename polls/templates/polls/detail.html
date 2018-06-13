@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/detail.css' %}" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/polls/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>  <!-- if you are typing this code upper jQuery code, it will be error -->
+
+    <title>Title</title>
+    <style>
+
+        /**{border:skyblue 1px solid}*/
+
+        .form-group{
+            font-size:30px;
+        }
+
+        #ggg:nth-of-type(odd){
+           <!-- background-color:#f9f9f9;-->
+        }
+
+         #ggg:nth-of-type(even){
+            <!--background-color:#ffffff;-->
+        }
+
+        #ggg:hover{
+
+            background-color:#f9f9f9;
+                }
+
+         .row {
+            margin-right:0;
+            margin-left:0;
+         }
+
+         label {
+            margin-bottom:0;
+         }
+
+
+
+    </style>
+</head>
+<body>
+<!--detail-->
+<h1 class="h1">detail</h1>
+<div class="container">
+    <div class="jumbotron">
+  	<h1 class="h1">{{ question.question_text }}.dfdf</h1>
+        <hr class="my-4">
+			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+			<form action="{% url 'polls:vote' question.id %}" method="post">
+				<!--<h1>{{ question.question_text }}</h1>-->
+				<!--<h3 style="text-alig : center;">SIng up</h3>-->
+				{% csrf_token %}
+				<!--<input type="radio" name="choice" id="choice3{{ forloop.counter }}" value="man" />-->
+				<!--<label for="choice{{ forloop.counter }}">{{ choice.sex }}</label><br />-->
+				<!--<input type="radio" name="choice" id="choice2{{ forloop.counter }}" value="woman" />-->
+				<!--<label for="choice2{{ forloop.counter }}">{{ choice.sex }}</label><br />-->
+				{% for choice in question.choice_set.all %}
+			 <div class="row form-group" id="ggg">
+					<input type="radio"  name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+                    	<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+				</div>  <br />
+				{% endfor %}
+                <input type="submit" class="btn btn-primary form-control" value="Vote" >
+			</form>
+  </p>
+</div>
+</div>
+</body>
+</html>
