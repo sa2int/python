@@ -9,14 +9,12 @@
      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="{% static 'polls/js/bootstrap.js' %}"></script>
     <title>Title</title>
-<style>
 
-    *{border:skyblue 1px solid; list-style:none;}
-</style>
 </head>
 <body>
 <div class="container">
-    <h1></h1>
+    <h1>List</h1>
+	<a href="{% url 'polls:list' %}">Home</a>
     <h3 style="text-alig : center;">SIng up</h3>
 
 <div class="row" >

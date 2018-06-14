@@ -2,12 +2,34 @@
     color:skyblue;
 }
 
-.label {
-    font-size:100px;
-}
 
 
-body {
 
-    background-image: white url("images/001.jpg") no-repeat;
-}
+
+  /**{border:skyblue 1px solid}*/
+
+        .form-group{
+            font-size:30px;
+        }
+
+        #ggg:nth-of-type(odd){
+           <!-- background-color:#f9f9f9;-->
+        }
+
+         #ggg:nth-of-type(even){
+            <!--background-color:#ffffff;-->
+        }
+
+        #ggg:hover{
+
+            background-color:#f9f9f9;
+                }
+
+         .row {
+            margin-right:0;
+            margin-left:0;
+         }
+
+         label {
+            margin-bottom:0;
+         }

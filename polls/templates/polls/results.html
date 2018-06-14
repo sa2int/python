@@ -3,20 +3,62 @@
 <html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/detail.css' %}" />
+    <link rel="stylesheet" href="{% static 'polls/css/bootstrap.css' %}">
     <title>Title</title>
-    <link rel = "stylesheet" type="text/css" href="{% static 'polls/style.css' %"/>
+    <style>
+    /**{border:skyblue solid 1px}*/
+
+       .form-group{
+            font-size:30px;
+            margin-bottom:5px;
+        }
+
+        #ggg:nth-of-type(odd){
+           <!-- background-color:#f9f9f9;-->
+        }
+
+         #ggg:nth-of-type(even){
+            <!--background-color:#ffffff;-->
+        }
+
+        #ggg:hover{
+
+            background-color:#f9f9f9;
+                }
+
+         .row {
+            margin-right:0;
+            margin-left:0;
+         }
+
+         label {
+            margin-bottom:0;
+         }
+
+
+     #span{
+       float:right;
+    }
+    </style>
 </head>
 <body>
 <!--results-->
 <h1>results</h1>
-<h1>{{ question.question_text }}</h1>
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+<div class="container">
+    <a href="{% url 'polls:list' %}">Home</a> > <a href="{% url 'polls:detail' question.id  %}">Vote</a > > {{ question.question_text }}
+    <div class="jumbotron">
+  	<h1 class="h1">{{ question.question_text }}</h1>
+        <hr class="my-4">
+            {% for choice in question.choice_set.all %}
+			 <div class="row form-group" id="ggg">
+                 {{ choice.choice_text }}<span id="span">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span>
+				</div>
 {% endfor %}
-</ul>
-
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+  <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary form-control">Vote again?</a>
+</div>
+</div>
 </body>
 </html>

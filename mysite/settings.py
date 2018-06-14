@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -124,3 +125,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, '
+
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com']
+
+
+# Media files - 업로드를 하는 URL과 디렉토리 설정
+MEDIA_URL = '/media/' # 업로드 할 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #로컬 디렉토리 어디에 저장할 것인지
