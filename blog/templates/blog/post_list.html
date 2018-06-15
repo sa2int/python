@@ -5,6 +5,51 @@
     <title>Jake's blog</title>
 </head>
 <body>
-Hello
+ <p>Hi there!</p>
+    <p>It works!</p>
+
+ Hello World
+
+{{ posts }}
+
+{% for post in posts %}
+    {{ post }}
+{% endfor %}
+
+
+
+
+
+ {% for post in posts %}
+    {{ posts }}
+ {% endfor %}
+
+
+<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+
+
+
+<div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in post %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 </body>
 </html>

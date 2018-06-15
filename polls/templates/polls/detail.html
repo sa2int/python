@@ -41,11 +41,12 @@
 </head>
 <body>
 <!--detail-->
-<h1 class="h1">detail</h1>
+
 <div class="container">
+	<h1 class="h1">detail</h1>
 	<a href="{% url 'polls:list' %}">Home</a> > Vote > <a href="{% url 'polls:results' question.id  %}"> {{ question.question_text }} </a>
     <div class="jumbotron">
-  	<h1 class="h1">{{ question.question_text }}.dfdf</h1>
+  	<h1 class="h1">{{ question.question_text }}</h1>
         <hr class="my-4">
 			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 			<form action="{% url 'polls:vote' question.id %}" method="post">

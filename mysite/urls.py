@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import include, url
 
 """mysite URL Configuration
 
@@ -17,8 +18,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 urlpatterns = [
-    path('blog/', include('blog.urls')),
+    # path('blog/', include('blog.urls')),
+    url(r'', include('blog.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]
-

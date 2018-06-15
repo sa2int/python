@@ -9,13 +9,59 @@
      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="{% static 'polls/js/bootstrap.js' %}"></script>
     <title>Title</title>
+<style>
 
+     <style>
+    /**{border:skyblue solid 1px}*/
+
+    * {
+        list-style:none;
+    }
+
+    td,  {
+        font-size:30px;
+    }
+
+       .form-group{
+            font-size:30px;
+            margin-bottom:5px;
+        }
+
+        #ggg:nth-of-type(odd){
+           <!-- background-color:#f9f9f9;-->
+        }
+
+         #ggg:nth-of-type(even){
+            <!--background-color:#ffffff;-->
+        }
+
+        #ggg:hover{
+
+            background-color:#f9f9f9;
+                }
+
+         .row {
+            margin-right:0;
+            margin-left:0;
+         }
+
+         label {
+            margin-bottom:0;
+         }
+
+
+     #span{
+       float:right;
+    }
+    </style>
+
+</style>
 </head>
 <body>
 <div class="container">
     <h1>List</h1>
 	<a href="{% url 'polls:list' %}">Home</a>
-    <h3 style="text-alig : center;">SIng up</h3>
+
 
 <div class="row" >
  <div class="col-sm-6 col-lg-3" style="width:100%;">
@@ -23,7 +69,6 @@
 			<tr>
 				<th style="background-color:#eeeeeeee; text-align:center;">Number</th>
 				<th style="background-color:#eeeeeeee; text-align:center;">Subject</th>
-				<th style="background-color:#eeeeeeee; text-align:center;">Writer</th>
 				<th style="background-color:#eeeeeeee; text-align:center;">Date</th>
 			</tr>
 			<tbody>
@@ -38,10 +83,6 @@
 
 					</td>
 					<td>
-						        					<!--{{ question.username }}-->
-					</td>
-
-					<td>
         					{{ question.pub_date }}
     				</td>
 
@@ -52,5 +93,10 @@
         </div>
 	</div>
 </div>
+
+
+
+
+
 </body>
 </html>

@@ -45,9 +45,10 @@
 </head>
 <body>
 <!--results-->
-<h1>results</h1>
+
 
 <div class="container">
+    <h1>results</h1>
     <a href="{% url 'polls:list' %}">Home</a> > <a href="{% url 'polls:detail' question.id  %}">Vote</a > > {{ question.question_text }}
     <div class="jumbotron">
   	<h1 class="h1">{{ question.question_text }}</h1>

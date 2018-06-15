@@ -7,7 +7,6 @@ from django.views import generic
 from .models import Question, Choice
 
 
-
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
@@ -94,4 +93,3 @@ def vote(request, question_id):
 
 def upload_file(request):
     return render(request, 'polls/upload.html', {})
-
