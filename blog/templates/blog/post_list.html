@@ -1,55 +1,53 @@
 <!DOCTYPE html>
+{% load static %}
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <title>Jake's blog</title>
+<style>
+    #a {
+    color:skyblue
+    }
+
+     #b {
+    color:green
+    }
+
+     #c {
+    color:blue
+    }
+
+    #d {
+    color:blue
+    }
+
+</style>
 </head>
 <body>
- <p>Hi there!</p>
-    <p>It works!</p>
-
- Hello World
-
-{{ posts }}
-
-{% for post in posts %}
-    {{ post }}
-{% endfor %}
-
-
-
-
-
- {% for post in posts %}
-    {{ posts }}
- {% endfor %}
-
-
-<div>
-    <h1><a href="/">Django Girls Blog</a></h1>
+<h1>Blog</h1>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
 
 
 
-
-<div>
-    <h1><a href="/">Django Girls Blog</a></h1>
-</div>
-
-{% for post in post %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
 </body>
 </html>
